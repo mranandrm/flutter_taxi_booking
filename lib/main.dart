@@ -1,11 +1,24 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_taxi_booking/screen/HomeScreen.dart';
 import 'package:flutter_taxi_booking/screen/LocationScreen.dart';
+import 'package:flutter_taxi_booking/screen/LoginScreen.dart';
 import 'package:flutter_taxi_booking/screen/NoInternetScreen.dart';
+import 'package:flutter_taxi_booking/service/AuthProvider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -69,7 +82,7 @@ class _MyAppState extends State<MyApp> {
     // Main Screens Swap
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: _isOnline! ? LocationScreen() : NoInternetScreen(onRetry: _checkInternet),
+      home: _isOnline! ? HomeScreen(title: 'Home') : NoInternetScreen(onRetry: _checkInternet),
     );
   }
 }
