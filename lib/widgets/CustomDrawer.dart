@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../screen/LoginScreen.dart';
+import '../screen/ProfileSettingsScreen.dart';
 import '../screen/RegisterScreen.dart';
 import '../service/AuthProvider.dart';
 
@@ -66,6 +67,19 @@ class CustomDrawer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
+                ),
+                ListTile(
+                  title: Text('Profile Setting'),
+                  leading: Icon(Icons.settings),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfileSettingsScreen(),
+                      ),
+                    );
+                  },
+
                 ),
                 ListTile(
                   title: Text('Logout'),

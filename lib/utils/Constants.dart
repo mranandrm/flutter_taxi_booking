@@ -13,5 +13,6 @@ class Constants {
 
   static const String REGISTER_ROUTE = "/register";
 
+  static const String UPDATE_PROFILE_ROUTE = "/update-profile";
 
 }
