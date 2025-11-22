@@ -14,6 +14,7 @@ class AuthProvider extends ChangeNotifier {
   bool _isLoggedIn = false;
   User? _user;
   String? _token;
+  String? get token => _token;
 
   bool get authenticated => _isLoggedIn;
   User? get user => _user;

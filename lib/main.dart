@@ -6,6 +6,7 @@ import 'package:flutter_taxi_booking/screen/LocationScreen.dart';
 import 'package:flutter_taxi_booking/screen/LoginScreen.dart';
 import 'package:flutter_taxi_booking/screen/NoInternetScreen.dart';
 import 'package:flutter_taxi_booking/service/AuthProvider.dart';
+import 'package:flutter_taxi_booking/service/sos_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -15,6 +16,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => SosProvider()),
       ],
       child: MyApp(),
     ),

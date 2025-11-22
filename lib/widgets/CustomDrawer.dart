@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_taxi_booking/screen/sos/SOSListScreen.dart';
 import 'package:provider/provider.dart';
 
 import '../screen/LoginScreen.dart';
@@ -67,6 +68,20 @@ class CustomDrawer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
+                ),
+
+                ListTile(
+                  title: Text('SOS '),
+                  leading: Icon(Icons.sos),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SOSListScreen(),
+                      ),
+                    );
+                  },
+
                 ),
                 ListTile(
                   title: Text('Profile Setting'),

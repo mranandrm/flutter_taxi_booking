@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../service/AuthProvider.dart';
 import '../widgets/CustomDrawer.dart';
+import 'TaxiMapScreen.dart';
 
 
 
@@ -54,7 +55,21 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(child: Text('Home Screen')),
+      body: Center(child: ElevatedButton(
+        onPressed: () async {
+          final result = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => TaxiMapScreen()),
+          );
+
+          if (result != null) {
+            print("User selected:");
+            print(result);
+          }
+        },
+        child: Text("Pick Location"),
+      )
+      ),
       drawer: CustomDrawer(),
     );
   }
